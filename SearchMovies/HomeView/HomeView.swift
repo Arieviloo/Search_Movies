@@ -48,7 +48,7 @@ class HomeView: UIView {
         listTableView.delegate = delegate
         listTableView.dataSource = dataSource
     }
-    
+        
     private func configSetupConstraints() {
         NSLayoutConstraint.activate([
             searchTextField.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10),

@@ -11,6 +11,8 @@ class HomeViewController: UIViewController {
     
     var screen: HomeView?
     
+    var listView: [String] = ["test 1", "test 2", "test 3", "test 4" ]
+    
     override func loadView() {
         screen = HomeView()
         self.view = screen
@@ -37,17 +39,21 @@ extension HomeViewController: UITextFieldDelegate {
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return listView.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "toonn"
+        cell.textLabel?.text = listView[indexPath.row]
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         300
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
 }
