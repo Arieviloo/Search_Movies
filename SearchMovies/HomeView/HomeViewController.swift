@@ -23,7 +23,8 @@ class HomeViewController: UIViewController {
         title = "Movies"
         navigationController?.navigationBar.prefersLargeTitles = true
         
-        self.screen?.configDelegateTextField(delegate: self)
+        self.screen?.configProtocolsTextField(delegate: self)
+        self.screen?.configProtocolsTableView(delegate: self, dataSource: self)
     }
 
 }
@@ -34,3 +35,19 @@ extension HomeViewController: UITextFieldDelegate {
     }
 }
 
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.text = "toonn"
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        300
+    }
+    
+}
