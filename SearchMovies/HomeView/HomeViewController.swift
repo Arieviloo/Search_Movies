@@ -28,12 +28,19 @@ class HomeViewController: UIViewController {
         self.screen?.configProtocolsTextField(delegate: self)
         self.screen?.configProtocolsTableView(delegate: self, dataSource: self)
     }
+    
+    
 
 }
 
 extension HomeViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        let texto: String =  self.screen?.searchTextField.text ?? ""
+        print(texto)
     }
 }
 
