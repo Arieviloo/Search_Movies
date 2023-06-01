@@ -18,7 +18,7 @@ class HomeViewController: UIViewController {
         self.view = screen
         
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .red
@@ -30,7 +30,7 @@ class HomeViewController: UIViewController {
     }
     
     
-
+    
 }
 
 extension HomeViewController: UITextFieldDelegate {
@@ -39,9 +39,27 @@ extension HomeViewController: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        let texto: String =  self.screen?.searchTextField.text ?? ""
-        print(texto)
-    }
+        guard let text = screen?.searchTextField.text, !text.isEmpty else { return }
+        print(text)
+        
+        URLSession.shared.dataTask(with: URL(string: "http://www.omdbapi.com/?i=tt3896198&apikey=d0cbfced$s=fast%20and&type=movie")!,
+                                   completionHandler: {data, response, error in
+            guard let data = data, error == nil else { return }
+            
+            var result: MovieResult?
+            do {
+                result = try JSONDecoder().decode(MovieResult.self, from: data)
+                
+            } catch {
+                print("error")
+            }
+            
+            guard let finalResult = result else { return }
+            
+            print("\(finalResult.Search.first?.Title)")
+            
+        }).resume()
+     }
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
@@ -64,3 +82,4 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
 }
+

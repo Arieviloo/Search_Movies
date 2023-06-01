@@ -7,11 +7,12 @@
 
 import Foundation
 
-struct MovieResult {
+struct MovieResult: Codable {
     let Search: [Movie]
+   
 }
 
-struct Movie {
+struct Movie: Codable {
     let Title: String
     let Year: String
     let imdbID: String
@@ -19,7 +20,7 @@ struct Movie {
     let Poster: String
     
     private enum CodingKeys: String, CodingKey {
-//        case Title, Year, imdbID, _Type = "Type", Poster
-        case _Type = "Type"
+        case Title, Year, imdbID, _Type = "Type", Poster
+        
     }
 }
