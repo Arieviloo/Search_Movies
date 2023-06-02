@@ -8,10 +8,24 @@
 import UIKit
 
 class HomeViewController: UIViewController {
+    init()  {
+        self.pages = [MoviesPage]()
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     var screen: HomeView?
     
+    
     var listView: [String] = ["test 1", "test 2", "test 3", "test 4" ]
+    private var pages: [MoviesPage] {
+        didSet {
+            self.screen?.listTableView.reloadData()
+        }
+    }
     
     override func loadView() {
         screen = HomeView()
@@ -27,6 +41,28 @@ class HomeViewController: UIViewController {
         
         self.screen?.configProtocolsTextField(delegate: self)
         self.screen?.configProtocolsTableView(delegate: self, dataSource: self)
+        
+        
+        let services = HomeService()
+        services.runApi { result in
+            switch result {
+            case .success(let page):
+                DispatchQueue.main.asyncAfter(deadline: .now()+5) {
+                    self.pages.append(page)
+                    //                    self.screen?.listTableView.reloadData()
+                }
+                //                print(self.pages.count)
+                
+                
+                
+            case .failure(let erro):
+                print(erro)
+                
+            }
+            
+        }
+        
+        
     }
     
     
@@ -42,34 +78,17 @@ extension HomeViewController: UITextFieldDelegate {
         guard let text = screen?.searchTextField.text, !text.isEmpty else { return }
         print(text)
         
-        URLSession.shared.dataTask(with: URL(string: "http://www.omdbapi.com/?i=tt3896198&apikey=d0cbfced$s=fast%20and&type=movie")!,
-                                   completionHandler: {data, response, error in
-            guard let data = data, error == nil else { return }
-            
-            var result: MovieResult?
-            do {
-                result = try JSONDecoder().decode(MovieResult.self, from: data)
-                
-            } catch {
-                print("error")
-            }
-            
-            guard let finalResult = result else { return }
-            
-            print("\(finalResult.Search.first?.Title)")
-            
-        }).resume()
-     }
+    }
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listView.count
+        return pages.flatMap({$0.movies}).count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = listView[indexPath.row]
+        cell.textLabel?.text = pages.flatMap({$0.movies})[indexPath.row].title
         return cell
     }
     

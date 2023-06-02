@@ -15,6 +15,7 @@
 		41456DD82A22481E00432192 /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41456DD72A22481E00432192 /* UIView + Extension.swift */; };
 		41456DDB2A2249DE00432192 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41456DDA2A2249DE00432192 /* HomeView.swift */; };
 		41A2E20C2A25776700F64170 /* MovieResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A2E20B2A25776700F64170 /* MovieResult.swift */; };
+		41C65E4F2A28F0190010798F /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C65E4E2A28F0190010798F /* HomeService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		41456DD72A22481E00432192 /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
 		41456DDA2A2249DE00432192 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		41A2E20B2A25776700F64170 /* MovieResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieResult.swift; sourceTree = "<group>"; };
+		41C65E4E2A28F0190010798F /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				41456DC52A22458700432192 /* HomeViewController.swift */,
+				41C65E4E2A28F0190010798F /* HomeService.swift */,
 				41456DDA2A2249DE00432192 /* HomeView.swift */,
 			);
 			path = HomeView;
@@ -167,6 +170,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41C65E4F2A28F0190010798F /* HomeService.swift in Sources */,
 				41456DD82A22481E00432192 /* UIView + Extension.swift in Sources */,
 				41A2E20C2A25776700F64170 /* MovieResult.swift in Sources */,
 				41456DC62A22458700432192 /* HomeViewController.swift in Sources */,
