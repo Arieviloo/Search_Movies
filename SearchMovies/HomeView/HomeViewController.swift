@@ -30,7 +30,6 @@ class HomeViewController: UIViewController {
     override func loadView() {
         screen = HomeView()
         self.view = screen
-        
     }
     
     override func viewDidLoad() {
@@ -42,7 +41,6 @@ class HomeViewController: UIViewController {
         self.screen?.configProtocolsTextField(delegate: self)
         self.screen?.configProtocolsTableView(delegate: self, dataSource: self)
         
-        
         let services = HomeService()
         services.runApi { result in
             switch result {
@@ -52,21 +50,11 @@ class HomeViewController: UIViewController {
                     //                    self.screen?.listTableView.reloadData()
                 }
                 //                print(self.pages.count)
-                
-                
-                
             case .failure(let erro):
                 print(erro)
-                
             }
-            
         }
-        
-        
     }
-    
-    
-    
 }
 
 extension HomeViewController: UITextFieldDelegate {
@@ -77,7 +65,6 @@ extension HomeViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         guard let text = screen?.searchTextField.text, !text.isEmpty else { return }
         print(text)
-        
     }
 }
 
