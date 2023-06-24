@@ -12,11 +12,11 @@ class HomeView: UIView {
     lazy var searchTextField: UITextField = {
         let tf = UITextField()
         tf.translatesAutoresizingMaskIntoConstraints = false
+        tf.placeholder = "Os Vingadores..."
         tf.autocorrectionType = .no
         tf.backgroundColor = .white
         tf.borderStyle = .roundedRect
         tf.keyboardType = .default
-        tf.placeholder = "Os Vingadores..."
         tf.textColor = .darkGray
         return tf
     }()

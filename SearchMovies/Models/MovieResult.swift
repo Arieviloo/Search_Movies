@@ -28,7 +28,7 @@ import Foundation
 
 struct MoviesPage: Decodable {
     let page: Int
-    let movies: [Movie]2
+    let movies: [Movie]
     
     enum CodingKeys: String, CodingKey {
         case page
