@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		41456DC22A22458700432192 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41456DC12A22458700432192 /* AppDelegate.swift */; };
-		41456DC42A22458700432192 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41456DC32A22458700432192 /* SceneDelegate.swift */; };
 		41456DC62A22458700432192 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41456DC52A22458700432192 /* HomeViewController.swift */; };
 		41456DCB2A22458700432192 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41456DCA2A22458700432192 /* Assets.xcassets */; };
 		41456DCE2A22458700432192 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41456DCC2A22458700432192 /* LaunchScreen.storyboard */; };
@@ -22,7 +21,6 @@
 /* Begin PBXFileReference section */
 		41456DBE2A22458700432192 /* SearchMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41456DC12A22458700432192 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		41456DC32A22458700432192 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		41456DC52A22458700432192 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		41456DCA2A22458700432192 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		41456DCD2A22458700432192 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -68,7 +66,6 @@
 				41456DD92A22490400432192 /* HomeView */,
 				41456DD62A22480400432192 /* Extension */,
 				41456DC12A22458700432192 /* AppDelegate.swift */,
-				41456DC32A22458700432192 /* SceneDelegate.swift */,
 				41456DCA2A22458700432192 /* Assets.xcassets */,
 				41456DCC2A22458700432192 /* LaunchScreen.storyboard */,
 				41456DCF2A22458700432192 /* Info.plist */,
@@ -188,7 +185,6 @@
 				41456DC22A22458700432192 /* AppDelegate.swift in Sources */,
 				41456DDB2A2249DE00432192 /* HomeView.swift in Sources */,
 				41DB59092A39DD36000020F7 /* HomeTableViewCell.swift in Sources */,
-				41456DC42A22458700432192 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
